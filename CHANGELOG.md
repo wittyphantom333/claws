@@ -296,7 +296,7 @@ be built on the latest `go1.15` version.
 ## v1.4.0
 ### Fixed
 * **[Breaking]** Fixes `/api/servers` and `/api/servers/:server` not properly returning all of the relevant server information and resource usage.
-* Fixes Buddy improperly reading `WINGS_UID` and not `WINGS_GID` when running in containerized environments.
+* Fixes Buddy improperly reading `BUDDY_UID` and not `BUDDY_GID` when running in containerized environments.
 * Fixes a panic encountered when returning the contents of a file that is actively being written to by another process.
 * Corrected the handling of files that are being decompressed to properly support `.rar` files.
 * Fixes the error message returned when a server has run out of disk space to properly indicate such, rather than indicating that the file is a directory.

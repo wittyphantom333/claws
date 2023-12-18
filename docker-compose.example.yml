@@ -12,9 +12,9 @@ services:
     tty: true
     environment:
       TZ: "UTC"
-      WINGS_UID: 988
-      WINGS_GID: 988
-      WINGS_USERNAME: pteranodon
+      BUDDY_UID: 988
+      BUDDY_GID: 988
+      BUDDY_USERNAME: pteranodon
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/var/lib/docker/containers/:/var/lib/docker/containers/"

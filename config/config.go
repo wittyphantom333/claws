@@ -436,9 +436,9 @@ func EnsurePteranodonUser() error {
 
 	// Our way of detecting if buddy is running inside of Docker.
 	if sysName == "distroless" {
-		_config.System.Username = system.FirstNotEmpty(os.Getenv("WINGS_USERNAME"), "pteranodon")
-		_config.System.User.Uid = system.MustInt(system.FirstNotEmpty(os.Getenv("WINGS_UID"), "988"))
-		_config.System.User.Gid = system.MustInt(system.FirstNotEmpty(os.Getenv("WINGS_GID"), "988"))
+		_config.System.Username = system.FirstNotEmpty(os.Getenv("BUDDY_USERNAME"), "pteranodon")
+		_config.System.User.Uid = system.MustInt(system.FirstNotEmpty(os.Getenv("BUDDY_UID"), "988"))
+		_config.System.User.Gid = system.MustInt(system.FirstNotEmpty(os.Getenv("BUDDY_GID"), "988"))
 		return nil
 	}
 
