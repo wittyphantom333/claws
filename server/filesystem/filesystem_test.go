@@ -13,7 +13,7 @@ import (
 
 	. "github.com/franela/goblin"
 
-	"github.com/pterodactyl/wings/config"
+	"github.com/pteranodon/buddy/config"
 )
 
 func NewFs() (*Filesystem, *rootFs) {
@@ -25,7 +25,7 @@ func NewFs() (*Filesystem, *rootFs) {
 		},
 	})
 
-	tmpDir, err := os.MkdirTemp(os.TempDir(), "pterodactyl")
+	tmpDir, err := os.MkdirTemp(os.TempDir(), "pteranodon")
 	if err != nil {
 		panic(err)
 	}

@@ -13,9 +13,9 @@ import (
 	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/server"
-	"github.com/pterodactyl/wings/server/filesystem"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/server"
+	"github.com/pteranodon/buddy/server/filesystem"
 )
 
 const (
@@ -41,7 +41,7 @@ type Handler struct {
 func NewHandler(sc *ssh.ServerConn, srv *server.Server) (*Handler, error) {
 	uuid, ok := sc.Permissions.Extensions["user"]
 	if !ok {
-		return nil, errors.New("sftp: mismatched Wings and Panel versions — Panel 1.10 is required for this version of Wings.")
+		return nil, errors.New("sftp: mismatched Buddy and Panel versions — Panel 1.10 is required for this version of Buddy.")
 	}
 
 	events := eventHandler{

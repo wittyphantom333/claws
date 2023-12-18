@@ -7,8 +7,8 @@ import (
 
 	"github.com/mitchellh/colorstring"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/system"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/system"
 )
 
 // appName is a local cache variable to avoid having to make expensive copies of
@@ -18,7 +18,7 @@ var appName string
 var appNameSync sync.Once
 
 // PublishConsoleOutputFromDaemon sends output to the server console formatted
-// to appear correctly as being sent from Wings.
+// to appear correctly as being sent from Buddy.
 func (s *Server) PublishConsoleOutputFromDaemon(data string) {
 	appNameSync.Do(func() {
 		appName = config.Get().AppName

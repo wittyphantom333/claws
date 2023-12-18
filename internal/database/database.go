@@ -9,9 +9,9 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/internal/models"
-	"github.com/pterodactyl/wings/system"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/internal/models"
+	"github.com/pteranodon/buddy/system"
 )
 
 var (
@@ -19,13 +19,13 @@ var (
 	db *gorm.DB
 )
 
-// Initialize configures the local SQLite database for Wings and ensures that the models have
+// Initialize configures the local SQLite database for Buddy and ensures that the models have
 // been fully migrated.
 func Initialize() error {
 	if !o.SwapIf(true) {
 		panic("database: attempt to initialize more than once during application lifecycle")
 	}
-	p := filepath.Join(config.Get().System.RootDirectory, "wings.db")
+	p := filepath.Join(config.Get().System.RootDirectory, "buddy.db")
 	instance, err := gorm.Open(sqlite.Open(p), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Silent),
 	})

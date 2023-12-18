@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pterodactyl/wings/internal/models"
+	"github.com/pteranodon/buddy/internal/models"
 
 	"emperror.dev/errors"
 	"github.com/apex/log"
@@ -18,13 +18,13 @@ import (
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 
-	"github.com/pterodactyl/wings/system"
+	"github.com/pteranodon/buddy/system"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/environment"
-	"github.com/pterodactyl/wings/environment/docker"
-	"github.com/pterodactyl/wings/router/tokens"
-	"github.com/pterodactyl/wings/server"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/environment"
+	"github.com/pteranodon/buddy/environment/docker"
+	"github.com/pteranodon/buddy/router/tokens"
+	"github.com/pteranodon/buddy/server"
 )
 
 const (
@@ -310,7 +310,7 @@ func (h *Handler) HandleInbound(ctx context.Context, m Message) error {
 			// instead of authenticating for the first time.
 			if !newConnection {
 				// This prevents duplicate status messages as outlined in
-				// https://github.com/pterodactyl/panel/issues/2077
+				// https://github.com/pteranodon/panel/issues/2077
 				return nil
 			}
 

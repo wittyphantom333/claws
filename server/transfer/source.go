@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/pterodactyl/wings/internal/progress"
+	"github.com/pteranodon/buddy/internal/progress"
 )
 
 // PushArchiveToTarget POSTs the archive to the target node and returns the

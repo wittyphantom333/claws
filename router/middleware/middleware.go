@@ -11,9 +11,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/remote"
-	"github.com/pterodactyl/wings/server"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/remote"
+	"github.com/pteranodon/buddy/server"
 )
 
 // AttachRequestID attaches a unique ID to the incoming HTTP request so that any
@@ -176,8 +176,8 @@ func RequireAuthorization() gin.HandlerFunc {
 			return
 		}
 
-		// All requests to Wings must be authorized with the authentication token present in
-		// the Wings configuration file. Remeber, all requests to Wings come from the Panel
+		// All requests to Buddy must be authorized with the authentication token present in
+		// the Buddy configuration file. Remeber, all requests to Buddy come from the Panel
 		// backend, or using a signed JWT for temporary authentication.
 		if subtle.ConstantTimeCompare([]byte(auth[1]), []byte(token)) != 1 {
 			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "You are not authorized to access this endpoint."})

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/pterodactyl/wings/internal/models"
+	"github.com/pteranodon/buddy/internal/models"
 
 	"emperror.dev/errors"
 	"github.com/apex/log"
@@ -56,8 +56,8 @@ func (c *client) GetServers(ctx context.Context, limit int) ([]RawServerData, er
 // currently marked as "installing" or "restoring from backup" to be marked as
 // a normal successful install state.
 //
-// This handles Wings exiting during either of these processes which will leave
-// things in a bad state within the Panel. This API call is executed once Wings
+// This handles Buddy exiting during either of these processes which will leave
+// things in a bad state within the Panel. This API call is executed once Buddy
 // has fully booted all the servers.
 func (c *client) ResetServersState(ctx context.Context) error {
 	res, err := c.Post(ctx, "/servers/reset", nil)

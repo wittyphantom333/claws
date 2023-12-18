@@ -14,8 +14,8 @@ import (
 	"github.com/mholt/archiver/v4"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/remote"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/remote"
 )
 
 var format = archiver.CompressedArchive{
@@ -26,7 +26,7 @@ var format = archiver.CompressedArchive{
 type AdapterType string
 
 const (
-	LocalBackupAdapter AdapterType = "wings"
+	LocalBackupAdapter AdapterType = "buddy"
 	S3BackupAdapter    AdapterType = "s3"
 )
 

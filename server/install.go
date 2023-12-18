@@ -19,10 +19,10 @@ import (
 	"github.com/docker/docker/api/types/mount"
 	"github.com/docker/docker/client"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/environment"
-	"github.com/pterodactyl/wings/remote"
-	"github.com/pterodactyl/wings/system"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/environment"
+	"github.com/pteranodon/buddy/remote"
+	"github.com/pteranodon/buddy/system"
 )
 
 // Install executes the installation stack for a server process. Bubbles any
@@ -366,7 +366,7 @@ func (ip *InstallationProcess) AfterExecute(containerId string) error {
 	// variables passed into the container to make debugging things a little easier.
 	ip.Server.Log().WithField("path", ip.GetLogPath()).Debug("writing most recent installation logs to disk")
 
-	tmpl, err := template.New("header").Parse(`Pterodactyl Server Installation Log
+	tmpl, err := template.New("header").Parse(`Pteranodon Server Installation Log
 
 |
 | Details
@@ -420,7 +420,7 @@ func (ip *InstallationProcess) Execute() (string, error) {
 		Image:        ip.Script.ContainerImage,
 		Env:          ip.Server.GetEnvironmentVariables(),
 		Labels: map[string]string{
-			"Service":       "Pterodactyl",
+			"Service":       "Pteranodon",
 			"ContainerType": "server_installer",
 		},
 	}
@@ -454,7 +454,7 @@ func (ip *InstallationProcess) Execute() (string, error) {
 
 	// Ensure the root directory for the server exists properly before attempting
 	// to trigger the reinstall of the server. It is possible the directory would
-	// not exist when this runs if Wings boots with a missing directory and a user
+	// not exist when this runs if Buddy boots with a missing directory and a user
 	// triggers a reinstall before trying to start the server.
 	if err := ip.Server.EnsureDataDirectoryExists(); err != nil {
 		return "", err

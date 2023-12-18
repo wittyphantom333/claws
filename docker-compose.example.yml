@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  wings:
-    image: ghcr.io/pterodactyl/wings:latest
+  buddy:
+    image: ghcr.io/pteranodon/buddy:latest
     restart: always
     networks:
-      - wings0
+      - buddy0
     ports:
       - "8080:8080"
       - "2022:2022"
@@ -14,14 +14,14 @@ services:
       TZ: "UTC"
       WINGS_UID: 988
       WINGS_GID: 988
-      WINGS_USERNAME: pterodactyl
+      WINGS_USERNAME: pteranodon
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/var/lib/docker/containers/:/var/lib/docker/containers/"
-      - "/etc/pterodactyl/:/etc/pterodactyl/"
-      - "/var/lib/pterodactyl/:/var/lib/pterodactyl/"
-      - "/var/log/pterodactyl/:/var/log/pterodactyl/"
-      - "/tmp/pterodactyl/:/tmp/pterodactyl/"
+      - "/etc/pteranodon/:/etc/pteranodon/"
+      - "/var/lib/pteranodon/:/var/lib/pteranodon/"
+      - "/var/log/pteranodon/:/var/log/pteranodon/"
+      - "/tmp/pteranodon/:/tmp/pteranodon/"
       - "/etc/ssl/certs:/etc/ssl/certs:ro"
       # you may need /srv/daemon-data if you are upgrading from an old daemon
       #- "/srv/daemon-data/:/srv/daemon-data/"
@@ -29,11 +29,11 @@ services:
       #- "/etc/letsencrypt/:/etc/letsencrypt/"
 
 networks:
-  wings0:
-    name: wings0
+  buddy0:
+    name: buddy0
     driver: bridge
     ipam:
       config:
         - subnet: "172.21.0.0/16"
     driver_opts:
-      com.docker.network.bridge.name: wings0
+      com.docker.network.bridge.name: buddy0

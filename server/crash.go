@@ -8,8 +8,8 @@ import (
 
 	"emperror.dev/errors"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/environment"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/environment"
 )
 
 type CrashHandler struct {
@@ -40,7 +40,7 @@ func (cd *CrashHandler) SetLastCrash(t time.Time) {
 // This function assumes it is called under circumstances where a crash is suspected
 // of occurring. It will not do anything to determine if it was actually a crash, just
 // look at the exit state and check if it meets the criteria of being called a crash
-// by Wings.
+// by Buddy.
 //
 // If the server is determined to have crashed, the process will be restarted and the
 // counter for the server will be incremented.

@@ -17,7 +17,7 @@ import (
 	"gopkg.in/ini.v1"
 	"gopkg.in/yaml.v3"
 
-	"github.com/pterodactyl/wings/config"
+	"github.com/pteranodon/buddy/config"
 )
 
 // The file parsing options that are available for a server configuration file.
@@ -87,7 +87,7 @@ type ConfigurationFile struct {
 	Parser   ConfigurationParser            `json:"parser"`
 	Replace  []ConfigurationFileReplacement `json:"replace"`
 
-	// Tracks Wings' configuration so that we can quickly get values
+	// Tracks Buddy' configuration so that we can quickly get values
 	// out of it when variables request it.
 	configuration []byte
 }
@@ -499,8 +499,8 @@ func (f *ConfigurationFile) parseTextFile(path string) error {
 // the value was escaped or not to begin with before setting it, which I suppose
 // can work but jesus that is going to be some annoyingly complicated logic?
 //
-// @see https://github.com/pterodactyl/panel/issues/2308 (original)
-// @see https://github.com/pterodactyl/panel/issues/3009 ("bug" introduced as result)
+// @see https://github.com/pteranodon/panel/issues/2308 (original)
+// @see https://github.com/pteranodon/panel/issues/3009 ("bug" introduced as result)
 func (f *ConfigurationFile) parsePropertiesFile(path string) error {
 	var s strings.Builder
 	// Open the file and attempt to load any comments that currenty exist at the start

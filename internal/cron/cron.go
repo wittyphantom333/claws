@@ -8,16 +8,16 @@ import (
 	"github.com/apex/log"
 	"github.com/go-co-op/gocron"
 
-	"github.com/pterodactyl/wings/config"
-	"github.com/pterodactyl/wings/server"
-	"github.com/pterodactyl/wings/system"
+	"github.com/pteranodon/buddy/config"
+	"github.com/pteranodon/buddy/server"
+	"github.com/pteranodon/buddy/system"
 )
 
 const ErrCronRunning = errors.Sentinel("cron: job already running")
 
 var o system.AtomicBool
 
-// Scheduler configures the internal cronjob system for Wings and returns the scheduler
+// Scheduler configures the internal cronjob system for Buddy and returns the scheduler
 // instance to the caller. This should only be called once per application lifecycle, additional
 // calls will result in an error being returned.
 func Scheduler(ctx context.Context, m *server.Manager) (*gocron.Scheduler, error) {

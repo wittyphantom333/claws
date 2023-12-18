@@ -11,10 +11,10 @@ import (
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/client"
 
-	"github.com/pterodactyl/wings/environment"
-	"github.com/pterodactyl/wings/events"
-	"github.com/pterodactyl/wings/remote"
-	"github.com/pterodactyl/wings/system"
+	"github.com/pteranodon/buddy/environment"
+	"github.com/pteranodon/buddy/events"
+	"github.com/pteranodon/buddy/remote"
+	"github.com/pteranodon/buddy/system"
 )
 
 type Metadata struct {
@@ -150,14 +150,14 @@ func (e *Environment) ExitState() (uint32, bool, error) {
 	c, err := e.ContainerInspect(context.Background())
 	if err != nil {
 		// I'm not entirely sure how this can happen to be honest. I tried deleting a
-		// container _while_ a server was running and wings gracefully saw the crash and
+		// container _while_ a server was running and buddy gracefully saw the crash and
 		// created a new container for it.
 		//
 		// However, someone reported an error in Discord about this scenario happening,
 		// so I guess this should prevent it? They didn't tell me how they caused it though
 		// so that's a mystery that will have to go unsolved.
 		//
-		// @see https://github.com/pterodactyl/panel/issues/2003
+		// @see https://github.com/pteranodon/panel/issues/2003
 		if client.IsErrNotFound(err) {
 			return 1, false, nil
 		}

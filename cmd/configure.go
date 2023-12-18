@@ -16,7 +16,7 @@ import (
 	"github.com/goccy/go-json"
 	"github.com/spf13/cobra"
 
-	"github.com/pterodactyl/wings/config"
+	"github.com/pteranodon/buddy/config"
 )
 
 var configureArgs struct {
@@ -32,7 +32,7 @@ var nodeIdRegex = regexp.MustCompile(`^(\d+)$`)
 
 var configureCmd = &cobra.Command{
 	Use:   "configure",
-	Short: "Use a token to configure wings automatically",
+	Short: "Use a token to configure buddy automatically",
 	Run:   configureCmdRun,
 }
 
@@ -159,7 +159,7 @@ func configureCmdRun(cmd *cobra.Command, args []string) {
 		panic(err)
 	}
 
-	fmt.Println("Successfully configured wings.")
+	fmt.Println("Successfully configured buddy.")
 }
 
 func getRequest() (*http.Request, error) {
@@ -175,7 +175,7 @@ func getRequest() (*http.Request, error) {
 		return nil, err
 	}
 
-	r.Header.Set("Accept", "application/vnd.pterodactyl.v1+json")
+	r.Header.Set("Accept", "application/vnd.pteranodon.v1+json")
 	r.Header.Set("Content-Type", "application/json")
 	r.Header.Set("Authorization", fmt.Sprintf("Bearer %s", configureArgs.Token))
 

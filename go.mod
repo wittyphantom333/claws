@@ -1,4 +1,4 @@
-module github.com/pterodactyl/wings
+module github.com/pteranodon/buddy
 
 go 1.18
 

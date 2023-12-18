@@ -10,9 +10,9 @@ import (
 	"github.com/apex/log"
 	"github.com/docker/docker/client"
 
-	"github.com/pterodactyl/wings/environment"
-	"github.com/pterodactyl/wings/remote"
-	"github.com/pterodactyl/wings/server/backup"
+	"github.com/pteranodon/buddy/environment"
+	"github.com/pteranodon/buddy/remote"
+	"github.com/pteranodon/buddy/server/backup"
 )
 
 // Notifies the panel of a backup's state and returns an error if one is encountered
@@ -23,7 +23,7 @@ func (s *Server) notifyPanelOfBackup(uuid string, ad *backup.ArchiveDetails, suc
 			s.Log().WithFields(log.Fields{
 				"backup": uuid,
 				"error":  err,
-			}).Error("failed to notify panel of backup status due to wings error")
+			}).Error("failed to notify panel of backup status due to buddy error")
 			return err
 		}
 
